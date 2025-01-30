@@ -157,7 +157,6 @@ const Solutions = ({ problem }: { problem: string }) => {
             onCancel={() => setShowForm(false)} 
             />}
       </AuthenticatedWrapper>
- 
     </div>
   );
 

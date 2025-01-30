@@ -28,7 +28,6 @@ export default function Home() {
   }, [currentPage]);  
   
   const fetchProblems = async () => {
-    
     // First get total count
     const { count } = await supabase
       .from('problems')
@@ -90,50 +89,9 @@ export default function Home() {
       <div className="flex flex-1">
         {/* Left Sidebar */}
         <aside className="w-64 bg-gray-100 dark:bg-gray-800 p-4 border-r border-gray-200 dark:border-gray-700">
-          <h2 className="text-xl font-bold mb-4">Algorithms</h2>
+          <h2 className="text-xl font-bold mb-4">Algorithms</h2>          
           <nav>
             <ul className="space-y-2">
-              <li key="Ask AI">  
-                <button
-                    onClick={() => askAI()}
-                    className={`w-full text-left px-4 py-2 rounded border-2 
-                      ${selectedAlgorithm === "Ask AI" 
-                        ? "border-black" 
-                        : "border-black bg-gray-800 text-gray-400 hover:bg-gray-700"}
-                    `}
-                  >
-                    <ScreenSearchDesktopIcon />
-                    &nbsp;
-                    Ask AI
-                </button>
-              </li>
-              <li key="Wolfram Playground">  
-                <button
-                    onClick={() => handleAlgorithmSelect("Wolfram Playground")}
-                    className={`w-full text-left px-4 py-2 rounded border-2 
-                      ${selectedAlgorithm === "Wolfram Playground" 
-                        ? "border-black" 
-                        : "border-black bg-gray-800 text-gray-400 hover:bg-gray-700"}
-                    `}
-                  >
-                    <EditNoteIcon />
-                    &nbsp;
-                    Wolfram Playground
-                </button>
-              </li>
-              <li key="Bubble Sort">  
-                <button
-                    onClick={() => handleAlgorithmSelect("Bubble Sort")}
-                    className={`w-full text-left px-4 py-2 rounded 
-                      ${
-                        selectedAlgorithm === "Bubble Sort"
-                          ? "bg-blue-500 text-white hover:bg-blue-600"
-                          : "hover:bg-gray-200 dark:hover:bg-gray-700"
-                      }`}
-                  >
-                    Bubble Sort
-                  </button>
-              </li>
               {currentItems.map((problem) => (
                 <li key={problem.title}>
                   <button
