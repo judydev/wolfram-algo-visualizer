@@ -175,6 +175,8 @@ const Solutions = ({ problem }: { problem: string }) => {
 
         if (error) alert("Error deleting post");
         else alert("Post deleted");
+
+        await supabase.from('problems').update({solution_count: totalCount - 1}).eq('title', problem);
     }
   }
 };

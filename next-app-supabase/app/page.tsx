@@ -1,8 +1,8 @@
 "use client";
 import { useEffect, useState } from "react";
-import ScreenSearchDesktopIcon from '@mui/icons-material/ScreenSearchDesktop';
-import WolframPlayground from "./ui/WolframPlayground";
-import EditNoteIcon from '@mui/icons-material/EditNote';
+// import ScreenSearchDesktopIcon from '@mui/icons-material/ScreenSearchDesktop';
+// import WolframPlayground from "./ui/WolframPlayground";
+// import EditNoteIcon from '@mui/icons-material/EditNote';
 import LaunchIcon from '@mui/icons-material/Launch';
 import Solutions from "./ui/Solutions";
 import PostForm from "./protected/PostForm";
@@ -61,10 +61,10 @@ export default function Home() {
     setVisualization(<Solutions problem={algorithm}/>);    
   };
 
-  const askAI = () => {
-    setSelectedAlgorithm("Ask AI");
-    setVisualization(<WolframPlayground />);    
-  }
+  // const askAI = () => {
+  //   setSelectedAlgorithm("Ask AI");
+  //   setVisualization(<WolframPlayground />);    
+  // }
 
   const launchLeetcodeProblem = (problem: string) => {
     const problemData = problems.find(p => p.title === problem);
@@ -82,7 +82,6 @@ export default function Home() {
     else setShowForm(true);
   }
 
-  console.log('currentItems  ', currentItems)
   return (
     <div className="flex flex-col min-h-screen">
       {/* Content Container */}
@@ -161,7 +160,7 @@ export default function Home() {
                 Add Solution
               </button>
               <AuthenticatedWrapper>
-                {showForm && <PostForm count={totalCount} selectedAlgorithm={selectedAlgorithm} onCancel={() => setShowForm(false)} />}
+                {showForm && <PostForm count={currentItems.find(p => p.title === selectedAlgorithm)?.solution_count} selectedAlgorithm={selectedAlgorithm} onCancel={() => setShowForm(false)} />}
               </AuthenticatedWrapper>
             </>
           )}
